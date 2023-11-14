@@ -233,7 +233,10 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if (typeof +value === 'number') {
+  if (!value) {
+    return def;
+  }
+  if (Number.isFinite(+value)) {
     return value;
   }
   if (value && typeof value === 'object') {
